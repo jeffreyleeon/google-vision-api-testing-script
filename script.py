@@ -1,11 +1,14 @@
 import base64
 import json
+import os
+import requests
 
 IMAGE_NAME = 'image.jpg'
 OUTPUT_FILE_NAME = 'image.json'
 # Feature types: https://cloud.google.com/vision/docs/concepts#types_of_vision_api_requests
 FEATURE_TYPE = 'LABEL_DETECTION'
 
+GOOGLE_VISION_API_CREDENTIAL = os.getenv('GOOGLE_VISION_API_CREDENTIAL', '')
 
 def _get_encoded_image(image_file):
   return base64.b64encode(image_file.read())
